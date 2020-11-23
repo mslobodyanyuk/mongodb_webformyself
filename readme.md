@@ -5,20 +5,20 @@ How to make Laravel framework friendly with MongoDb?
 
 - Making a new project mongodb_webformyself.loc:
 				
-		`sudo chmod -R 777 /var/www/LARAVEL/MongoDB/mongodb_webformyself.loc`
+		sudo chmod -R 777 /var/www/LARAVEL/MongoDB/mongodb_webformyself.loc
 
 		//!!!! .conf
-		`sudo cp /etc/apache2/sites-available/test.loc.conf /etc/apache2/sites-available/mongodb_webformyself.loc.conf`
+		sudo cp /etc/apache2/sites-available/test.loc.conf /etc/apache2/sites-available/mongodb_webformyself.loc.conf
 				
-		`sudo nano /etc/apache2/sites-available/mongodb_webformyself.loc.conf`
+		sudo nano /etc/apache2/sites-available/mongodb_webformyself.loc.conf
 
-		`sudo a2ensite mongodb_webformyself.loc.conf`
+		sudo a2ensite mongodb_webformyself.loc.conf
 
-		`sudo systemctl restart apache2`
+		sudo systemctl restart apache2
 
-		`sudo nano /etc/hosts`
+		sudo nano /etc/hosts
 		
-		`cd /var/www/LARAVEL/MongoDB/mongodb_webformyself.loc`
+		cd /var/www/LARAVEL/MongoDB/mongodb_webformyself.loc
 		
 - Deploy project:
 
@@ -88,10 +88,16 @@ If you are using OpenServer:
 
 - Otherwise, you need to install MongoDB PHP Driver first.
 
-* *** To create a project, I installed and configured tools of the following versions: ***
+* ***To create a project, I installed and configured tools of the following versions:***
 
 	Laravel: 5.8.38 
+
+_+_
+	
 	MongoDB PHP Driver: 1.7.2
+	
+_+_	
+	
 	jenssegers/mongodb package version: 3.5
 	
 - Laravel: 5.8.38 
@@ -101,7 +107,6 @@ Installing the Laravel framework specifying the required version, while the proj
 	composer create-project laravel/laravel ./ 5.8
 
 Error:
-
 <https://www.nicesnippets.com/blog/proc-open-fork-failed-cannot-allocate-memory-laravel-ubuntu>
 
 	free -m
@@ -109,7 +114,7 @@ Error:
 	sudo /sbin/mkswap /var/swap.1
 	sudo /sbin/swapon /var/swap.1
 
- + 
+_+_ 
 
 - MongoDB PHP Driver: 1.7.2
 
@@ -136,7 +141,7 @@ public function index(){
 ...	
 ```
 
-![screenshot of sample]( https://github.com/mslobodyanyuk/mongodb_webformyself.loc/blob/master/public/images/0.png )
+![screenshot of sample]( https://github.com/mslobodyanyuk/mongodb_webformyself/blob/master/public/images/0.png )
 
 	- To enable extensions, verify that they are enabled in your .ini files:
 		- /etc/php/7.2/cli/php.ini
@@ -157,7 +162,7 @@ public function index(){
 		
 	sudo systemctl restart apache2		
 	
- + 
+_+_ 
 
 - jenssegers/mongodb package version: 3.5
 
@@ -171,7 +176,7 @@ public function index(){
 		
 	composer require jenssegers/mongodb ^3.5
 
---
+---
 
 WebForMySelf
 
@@ -192,7 +197,7 @@ like NoSQL and it uses JSON-like documents and, accordingly, database schemas in
  As a rule, this database is operated using the console, i.e. send a specific set of console commands and receive a specific response.
  
 [(2:55)]( https://youtu.be/ZhkfsvGh-uw?t=175 )
- - As for the Laravel framework - accordingly, the Laravel framework out of the box with MongoDB, of course, does NOT support. Due to the fact that the Laravel framework works with relational databases that received
+ As for the Laravel framework - accordingly, the Laravel framework out of the box with MongoDB, of course, does NOT support. Due to the fact that the Laravel framework works with relational databases that received
 most widespread. Such as MySQL, SQLite, PostgreSQL, etc. MongoDB is more used for CLIENT web applications, therefore, support for this database is NOT included in the basic functionality
 Laravel framework. BUT, of course, this ALL is fixed due to the fact that for the Laravel framework, and for other frameworks, there are many different extensions in order to expand its functionality.
 
@@ -203,7 +208,7 @@ setting, and we can work, or better even say, store and manipulate data that wil
 [(4:25)]( https://youtu.be/ZhkfsvGh-uw?t=265 )
  OpenServer uses MongoDB driver support internally.
 
-![screenshot of sample]( https://github.com/mslobodyanyuk/mongodb_webformyself.loc/blob/master/public/images/1.png )
+![screenshot of sample]( https://github.com/mslobodyanyuk/mongodb_webformyself/blob/master/public/images/1.png )
 
 [(4:50)]( https://youtu.be/ZhkfsvGh-uw?t=290 )
  For the visual component and for viewing, we will also install the MongoDB Compass program - here we will see the results of our work.( - What database structure is formed, what data is added, etc. )
@@ -292,7 +297,7 @@ documents...
 [(12:35)]( https://youtu.be/ZhkfsvGh-uw?t=755 )
  Open Compass, we see 3 additional collections have appeared: `migrations`, `password_resets`, `users`.
 
-![screenshot of sample]( https://github.com/mslobodyanyuk/mongodb_webformyself.loc/blob/master/public/images/2.png )
+![screenshot of sample]( https://github.com/mslobodyanyuk/mongodb_webformyself/blob/master/public/images/2.png )
 
 [(13:25)]( https://youtu.be/ZhkfsvGh-uw?t=805 )
  Let's create a model for the `articles` collection:
@@ -390,12 +395,12 @@ class Article extends Eloquent
 [(18:00)]( https://youtu.be/ZhkfsvGh-uw?t=1080 )
  Let's update the information in the browser - there will already be one article. Let's update one more time - there will already be two articles, absolutely identical.
 
-![screenshot of sample]( https://github.com/mslobodyanyuk/mongodb_webformyself.loc/blob/master/public/images/3.png )
+![screenshot of sample]( https://github.com/mslobodyanyuk/mongodb_webformyself/blob/master/public/images/3.png )
 
 [(18:15)]( https://youtu.be/ZhkfsvGh-uw?t=1095 )
  Go to `MongoDB Compass`, update the information and see that in the collection of documents `articles` we have two articles.
 
-![screenshot of sample]( https://github.com/mslobodyanyuk/mongodb_webformyself.loc/blob/master/public/images/4.png )
+![screenshot of sample]( https://github.com/mslobodyanyuk/mongodb_webformyself/blob/master/public/images/4.png )
 
 [(18:25)]( https://youtu.be/ZhkfsvGh-uw?t=1105 )
  Moreover, we can add a third article. And in it we can change the structure a little.
@@ -403,7 +408,7 @@ class Article extends Eloquent
 [(18:35)]( https://youtu.be/ZhkfsvGh-uw?t=1115 )
  Updating information. Pay attention - one more document has been added. There is already a distinctive line with the `author` field.
 
-![screenshot of sample]( https://github.com/mslobodyanyuk/mongodb_webformyself.loc/blob/master/public/images/5.png )
+![screenshot of sample]( https://github.com/mslobodyanyuk/mongodb_webformyself/blob/master/public/images/5.png )
 
 [(20:15)]( https://youtu.be/ZhkfsvGh-uw?t=1215 )
  We can also select a certain model by its identifier. MongoDB identifiers are NOT numeric values. These are these string values. If we use the `find()` method, then such strings
@@ -413,7 +418,7 @@ values must be passed like this:
 $articles = Article::find('5fb2fd7169031f104e11a632');		
 ```
 
-![screenshot of sample]( https://github.com/mslobodyanyuk/mongodb_webformyself.loc/blob/master/public/images/6.png )
+![screenshot of sample]( https://github.com/mslobodyanyuk/mongodb_webformyself/blob/master/public/images/6.png )
 
 [(20:45)]( https://youtu.be/ZhkfsvGh-uw?t=1245 )
  In the same way, you can create different kinds of filtering:
@@ -436,7 +441,7 @@ public function articles(){
 }
 ```
 
-We also create а relationship:
+We also create а relationship.
 
 `Article.php`: 
 
@@ -463,7 +468,7 @@ Category::create([
 ]);
 ```
 
-![screenshot of sample]( https://github.com/mslobodyanyuk/mongodb_webformyself.loc/blob/master/public/images/7.png )
+![screenshot of sample]( https://github.com/mslobodyanyuk/mongodb_webformyself/blob/master/public/images/7.png )
 
 [(24:50)]( https://youtu.be/ZhkfsvGh-uw?t=1490 )
  Let's create a new document in `articles`, BUT already define a link with `category`:
@@ -478,7 +483,7 @@ $result = $category->articles()->save($article);
  Updating information in the browser. - There are NO errors. Go to MongoDB, update our `articles` collection. We see the last document, there is a `category_id` field.
 This is the ID of the link plate.
 
-![screenshot of sample]( https://github.com/mslobodyanyuk/mongodb_webformyself.loc/blob/master/public/images/8.png )
+![screenshot of sample]( https://github.com/mslobodyanyuk/mongodb_webformyself/blob/master/public/images/8.png )
 
 [(27:15)]( https://youtu.be/ZhkfsvGh-uw?t=1635 )
  The data has been saved - now we will display it. Let's select ALL records that have an associated `Category` model:
@@ -490,7 +495,7 @@ $articles = Article::whereHas('category')->get();
 [(28:10)]( https://youtu.be/ZhkfsvGh-uw?t=1690 )
  Save the changes, update the browser, and now, we see the model of just the same article that is tied to the corresponding category.
 
-![screenshot of sample]( https://github.com/mslobodyanyuk/mongodb_webformyself.loc/blob/master/public/images/9.png )
+![screenshot of sample]( https://github.com/mslobodyanyuk/mongodb_webformyself/blob/master/public/images/9.png )
 
 #### useful links:
 
