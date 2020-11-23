@@ -90,7 +90,7 @@ If you are using OpenServer:
 
 * ***To create a project, I installed and configured tools of the following versions:***
 
-	Laravel: 5.8.38 
+	`Laravel: 5.8.38`
 
 _+_
 	
